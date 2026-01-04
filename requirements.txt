@@ -1,0 +1,11 @@
+# Core
+torch>=2.4.0
+torchvision
+# Wan 2.2 needs diffusers main (install from git, see README)
+# diffusers
+transformers>=4.42.0
+accelerate>=0.31.0
+pillow>=10.3.0
+
+# Web
+flask>=3.0.0

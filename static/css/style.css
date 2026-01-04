@@ -1,0 +1,63 @@
+body{font-family:font-family: system-ui, -apple-system, BlinkMacSystemFont,  "Segoe UI", Roboto, Ubuntu, Cantarell,  "Noto Sans", Arial, sans-serif; background:#111;color:#eee;padding:2em;max-width:960px;margin:auto}
+h1{color:#9ecbff; font-weight: 600, letter-spacing: 0.03em, text-align:center}
+fieldset{border:1px solid #333;padding:1em;margin-bottom:1em}
+label{display:block;margin:.3em 0}
+input,textarea,select{background:#222;border:1px solid #555;color:#eee;padding:.4em;width:100%}
+input[type=file]{padding:.6em}
+button{padding:.6em 1em;background:#3467ff;border:none;color:white;cursor:pointer}
+#gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1em;margin-top:1em}
+.card{background:#1b1b1b;border:1px solid #333;padding:.5em;border-radius:6px}
+video{width:100%;border-radius:6px}
+small.mono{font-family:monospace;color:#aaa}
+
+
+/* concat helpers */
+#concat-section { margin-top: 1.5em; }
+#concat_prompts .prompt-block { margin: .5em 0; }
+.hide{display:none}
+.row{display:flex;gap:1em;align-items:center;flex-wrap:wrap}
+.mono{font-family:monospace}
+
+.site-header{
+  text-align:center;
+  margin: 0 0 1.2em 0;
+}
+
+.author-link{
+  display:inline-block;
+  margin-top:.35em;
+  color:#aaa;
+  text-decoration:none;A
+  font-size:.95rem;
+}
+
+.author-link:hover{
+  text-decoration:underline;
+}
+
+#site-footer{
+  text-align:center;
+  margin-top:2em;
+  padding-top:1.2em;
+  border-top:1px solid #222;
+}
+
+.footer-link{
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.35em;
+  text-decoration:none;
+  color:#aaa;
+}
+
+.footer-logo{
+  width:44px;
+  height:auto;
+  display:block;
+}
+
+.footer-caption{
+  margin:0;
+  font-size:.85rem;
+}

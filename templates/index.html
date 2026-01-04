@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Z-VideoGen - By Zetalvx</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<header class="site-header">
+  <h1>Z-VideoGen - Local WebUI - Wan2.2 TI2V-5B</h1>
+  <a href="https://www.youtube.com/@zetalvx" target="_blank" class="author-link">
+    Created by ZetaLvX
+  </a>
+</header>
+
+  <form id="gen-form">
+    <fieldset>
+      <legend>Mode</legend>
+      <label>
+        <select id="mode">
+          <option value="t2v">Text → Video</option>
+          <option value="i2v">Image → Video</option>
+        </select>
+      </label>
+      <label>Prompt<textarea id="prompt" required></textarea></label>
+      <label>Negative prompt (optional)<textarea id="neg"></textarea></label>
+      <label>Initial image (I2V only) <input type="file" id="image" accept="image/*"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Quality & Size</legend>
+      <label>Width (px) <input type="number" id="width" min="64" step="1" value="1280"></label>
+      <label>Height (px) <input type="number" id="height" min="64" step="1" value="704"></label>
+      <label>Frames (at 24 fps) <input type="number" id="frames" min="49" max="241" value="121"></label>
+      <label>Steps <input type="number" id="steps" min="20" max="80" value="50"></label>
+      <label>CFG (guidance) <input type="number" id="cfg" min="0.5" max="10" step="0.1" value="5.0"></label>
+      <label>Seed (-1 = random) <input type="number" id="seed" value="-1"></label>
+      <label>Strength (denoise) <input type="number" id="strength" min="0" max="1" step="0.01" value="0.65"></label>
+      <label>Motion bucket ID <input type="number" id="motion_bucket_id" value="80" min="0" max="255"></label>
+      <label>LoRA
+        <select id="lora">
+          <option value="none">none</option>
+        </select>
+      </label>
+      <label>LoRA scale <input type="number" id="lora_scale" value="1.0" step="0.05" min="0" max="2"></label>
+      <label>Scheduler
+        <select id="sched">
+          <option value="UniPC">UniPC</option>
+          <option value="DPM++2M Karras">DPM++ 2M Karras</option>
+        </select>
+      </label>
+      <label><input type="checkbox" id="offload"> Enable CPU offload (low-VRAM)</label>
+    </fieldset>
+
+    <button type="submit">Generate</button>
+    <p><small class="mono">Tip: TI2V-5B requires 1280×704 or 704×1280 @ 24 fps. I2V respects the image content; always use multiples of 32.</small></p>
+  </form>
+
+  <hr>
+  <section id="concat-section">
+    <h2>Concatenate (multi‑clip)</h2>
+    <p>Generates N clips in sequence. The first uses the chosen mode (T2V/I2V). From the second onwards, it uses the last frame of the previous clip as the starting image (I2V).</p>
+
+    <div class="row">
+      <label>Clips to generate
+        <input type="number" id="concat_count" value="2" min="2" max="20">
+      </label>
+      <button type="button" id="concat_build">Build fields</button>
+    </div>
+
+    <div class="row">
+      <label>First clip mode
+        <select id="mode_first">
+          <option value="t2v">Text → Video (T2V)</option>
+          <option value="i2v">Image → Video (I2V)</option>
+        </select>
+      </label>
+      <label id="first_image_box" class="hide">Initial image (first I2V only)
+        <input type="file" id="image_first" accept="image/*">
+      </label>
+    </div>
+
+    <div id="concat_prompts"></div>
+
+    <div class="row">
+      <button type="button" id="concat_generate">Generate Concatenate</button>
+    </div>
+
+  </section>
+
+
+  <div id="gallery"></div>
+
+  <footer id="site-footer">
+    <a href="https://www.youtube.com/@zetalvx" target="_blank" class="footer-link">
+      <img src="/static/logo/logo.png" alt="Logo" class="footer-logo">
+      <p class="footer-caption">© By ZetaLvX</p>
+    </a>
+  </footer>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
