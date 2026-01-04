@@ -1,4 +1,4 @@
-# Wan 2.2 5B – Local WebUI (Text to Video & Image to Video)
+# Z-Videogen - Wan 2.2 5B – Local WebUI (Text to Video & Image to Video)
 
 A lightweight local WebUI to run **Wan 2.2 5B** entirely on your own machine or inside a local network.
 The interface supports both **Text to Video** and **Image to Video** generation from a single page, with a simple Flask backend and no external services required.
